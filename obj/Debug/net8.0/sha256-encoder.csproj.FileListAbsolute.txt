@@ -1,0 +1,15 @@
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\bin\Debug\net8.0\sha256-encoder.exe
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\bin\Debug\net8.0\sha256-encoder.deps.json
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\bin\Debug\net8.0\sha256-encoder.runtimeconfig.json
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\bin\Debug\net8.0\sha256-encoder.dll
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\bin\Debug\net8.0\sha256-encoder.pdb
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\obj\Debug\net8.0\sha256-encoder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\obj\Debug\net8.0\sha256-encoder.AssemblyInfoInputs.cache
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\obj\Debug\net8.0\sha256-encoder.AssemblyInfo.cs
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\obj\Debug\net8.0\sha256-encoder.csproj.CoreCompileInputs.cache
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\obj\Debug\net8.0\sha256-encoder.sourcelink.json
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\obj\Debug\net8.0\sha256-encoder.dll
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\obj\Debug\net8.0\refint\sha256-encoder.dll
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\obj\Debug\net8.0\sha256-encoder.pdb
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\obj\Debug\net8.0\sha256-encoder.genruntimeconfig.cache
+C:\Users\Yasmim da Cunha\Documents\Codes\CSharp\sha256-encoder\obj\Debug\net8.0\ref\sha256-encoder.dll
