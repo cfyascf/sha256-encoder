@@ -32,6 +32,35 @@ var fullBits = AddBits(binarySize, finalMissingBits, false, false);
 var word = stringfiedBinary + fullBits;
 Console.WriteLine($"{word} : WORD");
 
+List<string> words32bits = new();
+var startIndex = 0;
+var len = 32;
+
+try 
+{
+    while(startIndex <= word.Length)
+    {
+        var sub = word.Substring(startIndex, len);
+        words32bits.Add(sub);
+        var test = sub.Length;
+
+        startIndex += 32;
+    }
+}
+catch(Exception err)
+{
+    Console.WriteLine($"Error when breaking up word: {err.Message}");
+} 
+
+Console.WriteLine(words32bits.ToString());
+
+// var word32bits = "";
+// var aux = 0;
+// for(int i = 0; i < 32; i++)
+// {
+//     word.Substring(0, 31);
+// }
+
 // ..direction true to add to right, false to left
 string AddBits(string input, int qty, bool bitValue, bool direction)
 {
