@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography.X509Certificates;
+using System.Text;
 
 const string input = "batata";
 Console.WriteLine($"{input} : INPUT");
@@ -7,59 +8,71 @@ Console.WriteLine($"{input} : INPUT");
 var binaryInput = Encoding.UTF8.GetBytes(input);
 
 // ..turns binary into string so it's easier to deal with
-var stringfiedBinary = ConvertToBinaryString(binaryInput);
-Console.WriteLine($"{stringfiedBinary} : INPUT TO BINARY");
+var sBinaryInput = ConvertToBinaryString(binaryInput);
+Console.WriteLine($"{sBinaryInput} : INPUT TO BINARY");
 
 // ..adds 1 bit to the end
-stringfiedBinary = AddBits(stringfiedBinary, 1, true, true);
-Console.WriteLine($"{stringfiedBinary} : 1 BIT ADDED TO THE END");
+var sBinaryInput1 = AddBits(sBinaryInput, 1, true, true);
+Console.WriteLine($"{sBinaryInput1} : 1 BIT ADDED TO THE END");
 
 // ..the final word must have 448 bits,
 // so we found the bits missing and fill with 0..
-var size = stringfiedBinary.Length;
-var totalMissingBits = 448 - size;
+var wordSize = sBinaryInput.Length;
+Console.WriteLine($"{wordSize} : WORD SIZE");
+var totalMissingBits = 448 - wordSize;
 Console.WriteLine($"{totalMissingBits} : TOTAL MISSING BITS");
 
+var word448bits = AddBits(sBinaryInput1, totalMissingBits - 1, false, true);
+Console.WriteLine($"{word448bits.Length} : INPUT 448 BITS");
+
 // ..turn the size of the word into binary..
-var binarySize = Convert.ToString(size, 2);
-var sizeBinarySize = binarySize.Length;
+var binarySize = Convert.ToString(wordSize, 2);
+var sizeOfBinarySize = binarySize.Length;
 
-// ..the last 64 bits must contain the size
-// of the original binary word in binary as well;
-var finalMissingBits = totalMissingBits - sizeBinarySize;
-var fullBits = AddBits(binarySize, finalMissingBits, false, false);
+// // ..the last 64 bits must contain the size
+// // of the original binary word in binary as well;
+var missingBitsFromSize = 64 - sizeOfBinarySize;
+var size64bits = AddBits(binarySize, missingBitsFromSize, false, false);
+Console.WriteLine($"{size64bits} : INPUT SIZE 64 BITS");
 
-var word = stringfiedBinary + fullBits;
+var word = word448bits + size64bits;
 Console.WriteLine($"{word} : WORD");
 
 List<string> words32bits = new();
 var startIndex = 0;
 var len = 32;
 
+var test = 0;
 try 
 {
-    while(startIndex <= word.Length)
+    while(startIndex != word.Length)
     {
         var sub = word.Substring(startIndex, len);
         words32bits.Add(sub);
-        var test = sub.Length;
+        test = sub.Length;
 
         startIndex += 32;
+
+        if(startIndex == word.Length)
+        {
+            Console.WriteLine($"SUB : {sub} | TEST : {test} | START INDEX: {startIndex}");
+        }
     }
 }
 catch(Exception err)
 {
-    Console.WriteLine($"Error when breaking up word: {err.Message}");
+    Console.WriteLine($"Error when breaking up word: {err} | {test}");
 } 
 
-Console.WriteLine(words32bits.ToString());
+var wordsLeft = 64 - words32bits.Count;
+for(var i = 0; i < wordsLeft; i++)
+{
+    var word32bits = "";
+    word32bits = AddBits(word32bits, 32, false, true);
+    words32bits.Add(word32bits); 
+}
 
-// var word32bits = "";
-// var aux = 0;
-// for(int i = 0; i < 32; i++)
-// {
-//     word.Substring(0, 31);
-// }
+Console.WriteLine($"{words32bits.Count} : WORDS ARRAY SIZE");
 
 // ..direction true to add to right, false to left
 string AddBits(string input, int qty, bool bitValue, bool direction)
